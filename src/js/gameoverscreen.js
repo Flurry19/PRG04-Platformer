@@ -19,6 +19,7 @@ export class Gameoverscreen extends ex.Scene {
     constructor(score) {
         super();
         this.score = score
+
     }
     onInitialize(_engine) {
         super.onInitialize(_engine);

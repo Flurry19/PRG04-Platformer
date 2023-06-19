@@ -11,19 +11,18 @@ import { Coin } from './coin'
 export class level1 extends ex.Scene {
 
     score
-
     constructor(score) {
         super({})
         this.score = score
     }
 
     onInitialize(Engine) {
-
-
+        //Background
         const backgroundImage = Resources.Background.toSprite();
         const background = new Background(-350, -200, 10, 100, backgroundImage);
         this.add(background);
 
+        //Score label
         this.scoreLabel = new ex.Label({
             text: `Score: 0`,
             pos: new ex.Vector(100, 100),
@@ -35,6 +34,7 @@ export class level1 extends ex.Scene {
         })
         this.add(this.scoreLabel)
 
+        //Platforms
         const platform1 = new platform(0, 580, 2000, 20, ex.Color.Green);
         this.add(platform1);
 
@@ -53,6 +53,7 @@ export class level1 extends ex.Scene {
         const platform6 = new platform(750, 330, 1000, 20);
         this.add(platform6);
 
+        //Coins
         const coin1 = new Coin(120, 470, 2000, 2000, this.score)
         this.add(coin1)
 
@@ -65,11 +66,12 @@ export class level1 extends ex.Scene {
         const coin4 = new Coin(570, 320, 2000, 2000, this.score)
         this.add(coin4)
 
-
+        //Portal
         const portal = new Portal();
         portal.pos = new ex.Vector(1100, 250)
         this.add(portal);
 
+        //Enemy
         const enemy = new Enemy()
         enemy.pos = new ex.Vector(790, 300)
         enemy.actions.repeatForever((repeatCtx) => {
@@ -78,10 +80,11 @@ export class level1 extends ex.Scene {
         })
         this.add(enemy)
 
-        console.log("start de game!")
+        //Player
         const player = new Maincharacter(this.score)
         this.add(player)
 
+        //Borders
         let leftWall = new ex.Actor({
             pos: ex.vec(-1, 0),
             width: 30,
@@ -108,6 +111,7 @@ export class level1 extends ex.Scene {
     }
 
     onPreUpdate() {
+        //Editing score
         this.scoreLabel.text = `Score: ${this.score.getScore()}`
     }
 

@@ -9,25 +9,8 @@ export class Button extends ex.ScreenElement {
             height: 800,
             anchor: ex.Vector.Zero,
         });
+
         this.graphics.use(Resources.Startbutton.toSprite());
         this.scale = new ex.Vector(0.5, 0.5)
-
     }
-
-
-    // isClicked() {
-    //     return this.clicked
-    // }
-    // setClicked() {
-    //     this.clicked = false
-    // }
 }
-
-// export class Retrybutton extends Button {
-//     constructor(x, y, width, height) {
-//         super({
-//         });
-//         this.graphics.use(Resources.Retrybutton.toSprite())
-
-//     }
-// }

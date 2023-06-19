@@ -1,4 +1,4 @@
-export class Timescores {
+export class Score {
 
     score = 0
     getScore() {

@@ -42,25 +42,21 @@ export class Maincharacter extends ex.Actor {
         const keys = ex.Input.Keys;
 
         engine.input.keyboard.on("hold", (evt) => {
-            if (evt.key === keys.A || evt.key === keys.Left) {
+            if (evt.key === keys.A || evt.key === keys.Left) {//Running to the left
                 this.vel.x = -this.speed;
-            } else if (evt.key === keys.D || evt.key === keys.Right) {
+            } else if (evt.key === keys.D || evt.key === keys.Right) { //Running to the right
                 this.vel.x = this.speed;
-            } else if (evt.key === keys.S || evt.key === keys.Down) {
-                // Handle S key press
             }
         });
 
         engine.input.keyboard.on("release", (evt) => {
-            if (evt.key === keys.A || evt.key === keys.D || evt.key === keys.Left || evt.key === keys.Right) {
+            if (evt.key === keys.A || evt.key === keys.D || evt.key === keys.Left || evt.key === keys.Right) { //Stop with running
                 this.vel.x = 0;
-            } else if (evt.key === keys.S || evt.key === keys.Down) {
-                // Handle S key release
             }
         });
 
         engine.input.keyboard.on("press", (evt) => {
-            if (evt.key === keys.W || evt.key === keys.Up) {
+            if (evt.key === keys.W || evt.key === keys.Up) { //Jumping
                 if (this.onGround == true) {
                     this.vel.y = -250
                     this.onGround = false
@@ -68,7 +64,7 @@ export class Maincharacter extends ex.Actor {
                 }
             }
         })
-        this.on('collisionstart', (evt) => this.onCollisionStart(evt))
+        this.on('collisionstart', (evt) => this.onCollisionStart(evt)) //Collisions
 
     }
 
@@ -97,7 +93,6 @@ export class Maincharacter extends ex.Actor {
         }
         if (evt.other instanceof Enemy) {
             this.game.goToScene('Gameoverscreen')
-            // this.score.incrementScore()
         }
     }
 }
