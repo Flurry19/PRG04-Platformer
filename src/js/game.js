@@ -34,8 +34,6 @@ export class Game extends ex.Engine {
         const startscreen = new Startscreen()
         this.addScene('Startscreen', startscreen) //Adding startscreen
         this.goToScene('Startscreen') //Going to start screen
-
-
     }
 }
 

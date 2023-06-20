@@ -6,16 +6,7 @@ import { Portal } from "./portal";
 import { Enemy } from "./enemy";
 
 export class Maincharacter extends ex.Actor {
-    health
-    speed
-    jumped = false
-    onGround = true
-    facing = "R"
-    x
-    y
-    playerAnimations = {}
-    game
-    score
+    q
 
     constructor(score) {
         super({
@@ -56,11 +47,13 @@ export class Maincharacter extends ex.Actor {
         });
 
         engine.input.keyboard.on("press", (evt) => {
+            console.log('jump')
             if (evt.key === keys.W || evt.key === keys.Up) { //Jumping
                 if (this.onGround == true) {
                     this.vel.y = -250
                     this.onGround = false
                     this.jumped = true
+                    console.log('jump')
                 }
             }
         })

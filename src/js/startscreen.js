@@ -29,11 +29,6 @@ export class Startscreen extends ex.Scene {
         this.add(startbutton)
 
 
-        // let level1 = new level1()
-
-        // this.add(level1)
-
-
     }
 
     // onInitialize(evt, engine) {
